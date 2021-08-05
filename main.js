@@ -1,26 +1,49 @@
-var studentNames= [];
+var guest_list = []
 
-function submit()
-{
-    var student1= document.getElementById("student1").value;
-    var student2= document.getElementById("student2").value;
-    var student3= document.getElementById("student3").value;
-    var student4= document.getElementById("student4").value;
+function submit() {
 
-    studentNames.push(student1);
-    studentNames.push(student2);
-    studentNames.push(student3);
-    studentNames.push(student4);
+        var guests = document.getElementById("people-input").value;
+        guest_list.push(guests);
+        document.getElementById("in-line-names").innerHTML = guest_list;
+        console.log(guest_list);
 
-    document.getElementById("displayNames").innerHTML=studentNames;
-    console.log(studentNames);
-    document.getElementById("submit_button").style.display="none"; 
-    document.getElementById("sort_button").style.display="inline-block";   
 }
 
-function sort()
-{
-    studentNames.sort();
-    document.getElementById("displayNames").innerHTML=studentNames;
-    console.log(studentNames);
+function show() {
+
+        var inlist=[];
+   
+
+    for(k=0; k<guest_list.length; k++){
+        inlist.push("<h4>"+ guest_list[k] + "</h4>");
+    }
+    var inlist_output= inlist.join(" ");
+    document.getElementById("in-list-names").innerHTML = inlist_output;
+}
+
+function sorted() {
+
+        guest_list.sort();
+        var inlist=[];
+   
+
+        for(k=0; k<guest_list.length; k++){
+            inlist.push("<h4>"+ guest_list[k] + "</h4>");
+        }
+        var inlist_output= inlist.join(" ");
+        document.getElementById("in-list-sorted-names").innerHTML = inlist_output;
+
+}
+
+function search() {
+
+        var searchednames = 0
+        var name = document.getElementById("search-input").value;
+        for(j=0; j<guest_list.length; j++){
+                if(name==guest_list[j]) {
+                       searchednames++ ;
+                }
+        }
+
+        document.getElementById("name-found-text").innerHTML = "The name was found " + searchednames + " times";
 }

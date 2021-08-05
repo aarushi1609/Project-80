@@ -2,41 +2,25 @@ var studentNames= [];
 
 function submit()
 {
-    for(j=1; j<=4; j++){
-        var student= document.getElementById("student"+j).value;
-        console.log(student);
-        studentNames.push(student);
-    }
-    
-    var displayarray=[];
+    var student1= document.getElementById("student1").value;
+    var student2= document.getElementById("student2").value;
+    var student3= document.getElementById("student3").value;
+    var student4= document.getElementById("student4").value;
 
-    for(k=0; k<studentNames.length; k++){
-        displayarray.push("<h4> Name -"+ studentNames[k] + "</h4>");
-    }
-    var displayarraywithout= displayarray.join(" ");
-    document.getElementById("displayNamesWithComma").innerHTML=displayarray;
-    document.getElementById("displayNamesWithoutComma").innerHTML=displayarraywithout;
+    studentNames.push(student1);
+    studentNames.push(student2);
+    studentNames.push(student3);
+    studentNames.push(student4);
+
+    document.getElementById("displayNames").innerHTML=studentNames;
     console.log(studentNames);
     document.getElementById("submit_button").style.display="none"; 
     document.getElementById("sort_button").style.display="inline-block";   
 }
 
-
-
-
-
 function sort()
 {
     studentNames.sort();
-    var displayarray=[];
-   
-
-    for(k=0; k<studentNames.length; k++){
-        displayarray.push("<h4> Name -"+ studentNames[k] + "</h4>");
-    }
-    var displayarraywithout= displayarray.join(" ");
-    document.getElementById("displayNamesWithoutComma").innerHTML=displayarray;
-    document.getElementById("displayNamesWithoutComma").innerHTML=displayarraywithout;
+    document.getElementById("displayNames").innerHTML=studentNames;
     console.log(studentNames);
-  
 }
